@@ -163,18 +163,16 @@ def run(rank, world_size, processed_dir, num_classes):
 
 
 if __name__ == '__main__':
-    start_time = time.perf_counter()
-
     path = os.environ.get('DATA_DIR')
 
     """pyg datasets"""
-    # path = os.path.join(path, 'pyg', 'Reddit2')
-    # dataset = Reddit2(path)
+    path = os.path.join(path, 'pyg', 'Reddit2')
+    dataset = Reddit2(path)
 
     """ogb datasets"""
-    path = os.path.join(path, 'ogb')
+    # path = os.path.join(path, 'ogb')
     # dataset = PygNodePropPredDataset(name='ogbn-papers100M', root=path)
-    dataset = PygNodePropPredDataset(name='ogbn-products', root=path)
+    # dataset = PygNodePropPredDataset(name='ogbn-products', root=path)
 
     num_gpu = torch.cuda.device_count()
     print('Let\'s use', num_gpu, 'GPUs!')

@@ -15,13 +15,13 @@ PRE_MAPPING = True
 
 
 if __name__ == '__main__':
-    path = os.path.join(os.environ.get('DATA_DIR'), 'ogb')
-    dataset = PygNodePropPredDataset(name='ogbn-products', root=path, transform=T.ToSparseTensor())
-    data = dataset[0]
-
-    # path = os.path.join(os.environ.get('DATA_DIR'), 'pyg', 'Reddit2')
-    # dataset = Reddit2(path, pre_transform=T.ToSparseTensor())
+    # path = os.path.join(os.environ.get('DATA_DIR'), 'ogb')
+    # dataset = PygNodePropPredDataset(name='ogbn-products', root=path, transform=T.ToSparseTensor())
     # data = dataset[0]
+
+    path = os.path.join(os.environ.get('DATA_DIR'), 'pyg', 'Reddit2')
+    dataset = Reddit2(path, transform=T.ToSparseTensor())
+    data = dataset[0]
 
     if PRE_NORM:
         data.adj_t = adj_norm(data.adj_t)
